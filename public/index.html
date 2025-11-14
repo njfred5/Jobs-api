@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Jobs Frontend</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 20px; }
+    .job-card { border: 1px solid #ccc; padding: 15px; margin-bottom: 15px; border-radius: 8px; }
+    .job-card img { max-width: 80px; float: right; }
+    .job-title { font-size: 18px; font-weight: bold; }
+    .company { color: #555; }
+    .salary { color: green; }
+    a { text-decoration: none; color: blue; }
+  </style>
+</head>
+<body>
+  <h1>Remote Jobs</h1>
+  <div id="jobs"></div>
+
+  <script>
+    fetch("/jobs") // relative path
+      .then(res => res.json())
+      .then(data => {
+        const container = document.getElementById("jobs");
+        data.forEach(job => {
+          const card = document.createElement("div");
+          card.className = "job-card";
+          card.innerHTML = `
+            <img src="${job.companyLogo}" alt="${job.companyName}">
+            <div class="job-title">${job.jobTitle}</div>
+            <div class="company">${job.companyName} • ${job.jobGeo}</div>
+            <div class="salary">Salary: ${job.salaryMin || ""} - ${job.salaryMax || ""} ${job.salaryCurrency || ""}/${job.salaryPeriod || ""}</div>
+            <a href="${job.url}" target="_blank">View Job</a>
+          `;
+          container.appendChild(card);
+        });
+      })
+      .catch(err => console.error("Fetch error:", err));
+  </script>
+</body>
+</html>
