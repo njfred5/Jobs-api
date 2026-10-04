@@ -1,5 +1,7 @@
 export const logMiddleware = (req, res, next) => {
-  const date = new Date().toISOString();
-  console.log(`[${date}] ${req.method} ${req.url}`);
+  const start = Date.now();
+  res.on("finish", () => {
+    console.log(`[${new Date().toISOString()}] ${req.method} ${req.originalUrl} ${res.statusCode} ${Date.now() - start}ms`);
+  });
   next();
 };
