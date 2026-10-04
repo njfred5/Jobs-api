@@ -1,4 +1,4 @@
-# 🌍 Jobs API — Remote Jobs Board
+# Jobs API — Remote Jobs Board
 
 A full-stack remote jobs board. An **Express** API fetches live listings from the public [Jobicy API](https://jobicy.com/jobs-rss-feed), cleans and caches them, and a **React** frontend lets you search, filter, sort and save the ones you like once you have an account.
 
@@ -7,16 +7,16 @@ A full-stack remote jobs board. An **Express** API fetches live listings from th
 
 <!-- Add a screenshot: ![Screenshot](docs/screenshot.png) -->
 
-## ✨ Features
+## Features
 
-- 🔎 **Search & filters** — keyword, region, industry, job type, sort by newest / salary / company
-- ⭐ **Saved jobs** — create an account and keep a personal shortlist (stored server-side, follows you across devices)
-- 🔐 **Authentication** — register / login with hashed passwords (bcrypt) and JWT sessions
-- ⚡ **Fast** — responses from Jobicy are cached in memory (15 min by default), requests are debounced and cancelled on the client
-- 🌗 **Dark mode** and responsive layout
-- 🛡️ **Hardened API** — Helmet security headers, rate-limited auth routes, input validation, centralised error handling
+-  **Search & filters** — keyword, region, industry, job type, sort by newest / salary / company
+- **Saved jobs** — create an account and keep a personal shortlist (stored server-side, follows you across devices)
+-  **Authentication** — register / login with hashed passwords (bcrypt) and JWT sessions
+-  **Fast** — responses from Jobicy are cached in memory (15 min by default), requests are debounced and cancelled on the client
+- **Dark mode** and responsive layout
+- **Hardened API** — Helmet security headers, rate-limited auth routes, input validation, centralised error handling
 
-## 🧱 Tech stack
+## Tech stack
 
 | Layer | Tech |
 |-------|------|
@@ -27,7 +27,7 @@ A full-stack remote jobs board. An **Express** API fetches live listings from th
 | Security | `helmet`, `express-rate-limit` |
 | Hosting | Render |
 
-## 📁 Project structure
+##  Project structure
 
 ```
 .
@@ -52,7 +52,7 @@ A full-stack remote jobs board. An **Express** API fetches live listings from th
 └── render.yaml             # Render deployment blueprint
 ```
 
-## 🔌 API reference
+## API reference
 
 | Method | Endpoint | Auth | Description |
 |--------|----------|------|-------------|
@@ -72,7 +72,7 @@ Authenticated requests send `Authorization: Bearer <token>`.
 curl "http://localhost:3000/api/jobs?q=react&geo=usa&sort=salary&count=10"
 ```
 
-## 🚀 Run locally
+## Run locally
 
 Requires **Node.js 20+**.
 
@@ -115,19 +115,19 @@ Run the tests with `npm test`.
    - Env vars: `NODE_ENV=production`, `JWT_SECRET=<random string>`
 3. Every push to the connected branch redeploys automatically.
 
-> ⚠️ **Free tier note:** Render's free web services have an ephemeral disk, so the SQLite file (users and saved jobs) is wiped on each redeploy or restart. For persistent data, attach a Render persistent disk (paid) and point `DATABASE_URL` to it, or migrate to PostgreSQL.
+> **Free tier note:** Render's free web services have an ephemeral disk, so the SQLite file (users and saved jobs) is wiped on each redeploy or restart. For persistent data, attach a Render persistent disk (paid) and point `DATABASE_URL` to it, or migrate to PostgreSQL.
 
-## 🗺️ Roadmap
+## Roadmap
 
 - [ ] PostgreSQL for persistent storage on the free tier
 - [ ] Pagination / infinite scroll
 - [ ] Job application tracker (applied / interview / offer)
 - [ ] Integration tests with Supertest
 
-## 🙏 Credits
+## Credits
 
 Job data provided by [Jobicy](https://jobicy.com). Please respect their [fair-use guidelines](https://jobicy.com/jobs-rss-feed) — this project caches results to keep requests low.
 
-## 👤 Author
+## Author
 
 **Fred Mathys Njike N.** — [GitHub @njfred5](https://github.com/njfred5)
