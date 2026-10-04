@@ -4,7 +4,7 @@
   "description": "Remote jobs board: Express + SQLite API with JWT auth and a React (Vite) frontend",
   "type": "module",
   "main": "src/index.js",
-  "engines": { "node": ">=20" },
+  "engines": { "node": "22.x" },,
   "scripts": {
     "start": "node src/index.js",
     "dev": "nodemon src/index.js",
