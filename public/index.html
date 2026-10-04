@@ -17,7 +17,7 @@
   <div id="jobs"></div>
 
   <script>
-    fetch("/jobs") // relative path
+    fetch("/jobs") 
       .then(res => res.json())
       .then(data => {
         const container = document.getElementById("jobs");
