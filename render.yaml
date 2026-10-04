@@ -1,18 +1,17 @@
 services:
   - type: web
-    name: student-api
-    env: node
+    name: jobs-api
+    runtime: node
     plan: free
-    buildCommand: npm install
-    startCommand: node server.js
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    healthCheckPath: /health
     envVars:
       - key: NODE_ENV
         value: production
-      - key: PORT
-        value: 3000
-      - key: API_KEY
-        value: skyly
       - key: JWT_SECRET
-        value: your-jwt-secret-here-min-32-characters
+        generateValue: true      # Render creates a strong random secret for you
       - key: JWT_EXPIRES_IN
-        value: 24h
+        value: 7d
+      - key: DATABASE_URL
+        value: /tmp/database.sqlite   # free tier = ephemeral disk (see README)
