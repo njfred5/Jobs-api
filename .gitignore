@@ -3,3 +3,5 @@ node_modules
 *.sqlite
 *.db
 database.sqlite
+client/node_modules
+client/dist
